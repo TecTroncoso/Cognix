@@ -1,5 +1,7 @@
 # Cognix
 
+> Language: **English** · [Español](README.es.md)
+
 **Cognix is a thin launcher/integration layer over the official Pi coding agent.**
 `cognix` gives you a working Pi session with **gentle-pi + the Cognix
 extension + the gentle-ai managed assets**, and `cognix update` keeps Pi,
