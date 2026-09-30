@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+Thumbs.db
+
+# Local dev environment (not product code)
+venv/
+.vscode/
+abrir_proyecto.bat
+# Local Pi runtime state
+.atl/

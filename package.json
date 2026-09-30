@@ -1,0 +1,44 @@
+{
+  "name": "cognix",
+  "version": "0.1.0",
+  "description": "Cognix: a CLI layer on top of the Pi coding agent runtime. Uses the globally installed Pi and gentle-pi; vendored copies are never created.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "bin": {
+    "cognix": "dist/src/cli/bin.js"
+  },
+  "files": [
+    "dist/src",
+    "docs"
+  ],
+  "keywords": [
+    "pi-package",
+    "cognix",
+    "pi-coding-agent"
+  ],
+  "pi": {
+    "extensions": [
+      "./dist/src/extension/index.js"
+    ]
+  },
+  "sideEffects": false,
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test \"dist/test/**/*.test.js\"",
+    "e2e": "npm run build && node scripts/e2e.mjs",
+    "prepare": "npm run build",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^0.99.2",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}
