@@ -53,9 +53,56 @@ project decides *how* to perform it.
 
 ## Installing Cognix
 
+Cognix is installed globally with npm (it is a Node CLI, like Pi itself).
+
+### From GitHub (available now)
+
+No npm package is published yet — install straight from the repository:
+
 ```bash
-npm install -g cognix                      # npm registry (once published)
-npm install -g github:TecTroncoso/Cognix   # straight from GitHub (builds via npm's prepare hook; needs Node 22.19+)
+npm install -g github:TecTroncoso/Cognix
+```
+
+Equivalent explicit form, and how to pin a tag or commit instead of `main`:
+
+```bash
+npm install -g git+https://github.com/TecTroncoso/Cognix.git
+npm install -g github:TecTroncoso/Cognix#main
+npm install -g github:TecTroncoso/Cognix#v1.0.0   # once a tag exists
+```
+
+What happens: npm clones the repo, installs dev dependencies, and runs the
+package's `prepare` script, which builds `dist/` with `tsc` — no prebuilt
+binaries, no extra tooling beyond **Node.js 22.19+** (npm and git ship with
+it). Verify afterwards:
+
+```bash
+cognix --version
+cognix doctor
+```
+
+Update later the same way (the Pi registration follows automatically):
+
+```bash
+npm install -g github:TecTroncoso/Cognix
+```
+
+### From the npm registry (pending)
+
+```bash
+npm install -g cognix
+```
+
+Will be available once the package is published.
+
+### From a source checkout (development)
+
+```bash
+git clone https://github.com/TecTroncoso/Cognix.git
+cd Cognix
+npm install
+npm run build
+npm link   # makes `cognix` available globally from this checkout
 ```
 
 ## Commands
